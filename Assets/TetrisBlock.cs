@@ -54,6 +54,7 @@ public class TetrisBlock : MonoBehaviour
             previousTime = Time.time;
         }
     }
+    
     void CheckForLines()
     {
         for (int i = height - 1; i >= 0; i--)
@@ -105,7 +106,9 @@ public class TetrisBlock : MonoBehaviour
             int roundedX = Mathf.RoundToInt(children.transform.position.x);
             int roundedY = Mathf.RoundToInt(children.transform.position.y);
             grid[roundedX, roundedY] = children;
+
         }
+        CheckEndGame();
     }
     bool ValidMove() //we make function that check block in area (width height)
     {
@@ -125,5 +128,17 @@ public class TetrisBlock : MonoBehaviour
         }
 
         return true;
-    }    
+    }
+    public void GameOver()
+    {
+        Application.LoadLevel(0);
+    }
+    void CheckEndGame()
+    {
+        for (int j = 0; j < width; j++)
+        {
+            if (grid[j, height -1] != null)
+                GameOver();
+        }
+    }
 }
