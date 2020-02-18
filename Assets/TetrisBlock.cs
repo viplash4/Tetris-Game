@@ -83,6 +83,7 @@ public class TetrisBlock : MonoBehaviour
             grid[j, i] = null;
                 
         }
+        ScoreScript.scoreValue += 1;
     }
     void RowDown(int i)
     {
