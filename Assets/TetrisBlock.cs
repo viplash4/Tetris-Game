@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class TetrisBlock : MonoBehaviour
 {
@@ -53,6 +54,7 @@ public class TetrisBlock : MonoBehaviour
                 
             previousTime = Time.time;
         }
+        
     }
     
     void CheckForLines()
@@ -84,6 +86,8 @@ public class TetrisBlock : MonoBehaviour
                 
         }
         ScoreScript.scoreValue += 1;
+        //if (ScoreScript.scoreValue > 0 && ScoreScript.scoreValue % 10 == 0)
+            //fallTime += 2.0f;
     }
     void RowDown(int i)
     {
@@ -132,7 +136,7 @@ public class TetrisBlock : MonoBehaviour
     }
     public void GameOver()
     {
-        Application.LoadLevel(0);
+        SceneManager.LoadScene("ExitScene");
     }
     void CheckEndGame()
     {

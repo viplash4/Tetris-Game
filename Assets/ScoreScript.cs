@@ -17,5 +17,7 @@ public class ScoreScript : MonoBehaviour
     void Update()
     {
         score.text = "Score: " + scoreValue;
+        //if (scoreValue % 10 == 0)
+            
     }
 }
